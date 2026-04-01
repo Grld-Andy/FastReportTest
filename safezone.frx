@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/01/2026 12:03:29" ReportInfo.Modified="04/01/2026 12:51:45" ReportInfo.CreatorVersion="2026.1.0.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqEefnFlrd0L+KYrQH91gzCDcjqw2/6qeMyM/YuReaQxPIsxlNGf/2t/vsFtCohLfN5XIQqMBi+ZtqmfrffYDwQ9resCCzd8XbAOqOEeafTUn2MGXUqkmgL2N/RSbKZYEiCDb7rLuqTOM9QEOxPJV0IdOBhKhaR/Q7jA04wGE8ys/7Dc+ikMd2+nR8P6VkiR6wBQQWL1TJ9Rffl4JJoUgqgg==">
+      <TableDataSource Name="__EFMigrationsHistory" DataType="System.Int32" Enabled="true" TableName="__EFMigrationsHistory">
+        <Column Name="MigrationId" DataType="System.String"/>
+        <Column Name="ProductVersion" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="activities_Activities" DataType="System.Int32" Enabled="true" TableName="activities.&quot;Activities&quot;">
+        <Column Name="Id" DataType="System.Guid"/>
+        <Column Name="ActorId" DataType="System.Guid"/>
+        <Column Name="ActorName" DataType="System.String"/>
+        <Column Name="Action" DataType="System.String"/>
+        <Column Name="Details" DataType="System.String"/>
+        <Column Name="Module" DataType="System.String"/>
+        <Column Name="CreatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="users_Users" DataType="System.Int32" Enabled="true" TableName="users.&quot;Users&quot;">
+        <Column Name="Id" DataType="System.Guid"/>
+        <Column Name="UserName" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="Password" DataType="System.String"/>
+        <Column Name="Team" DataType="System.String"/>
+        <Column Name="Role" DataType="System.String"/>
+        <Column Name="Status" DataType="System.String"/>
+        <Column Name="CreatedAt" DataType="System.DateTime"/>
+        <Column Name="UpdatedAt" DataType="System.DateTime"/>
+        <Column Name="OTP" DataType="System.String"/>
+        <Column Name="ProfilePicUrl" DataType="System.String"/>
+      </TableDataSource>
+      <TableDataSource Name="incidents_IncidentUsers" DataType="System.Int32" Enabled="true" TableName="incidents.&quot;IncidentUsers&quot;">
+        <Column Name="Id" DataType="System.Guid"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Email" DataType="System.String"/>
+        <Column Name="Role" DataType="System.String"/>
+        <Column Name="CreatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="incidents_Incidents" DataType="System.Int32" Enabled="true" TableName="incidents.&quot;Incidents&quot;">
+        <Column Name="Id" DataType="System.Guid"/>
+        <Column Name="Subject" DataType="System.String"/>
+        <Column Name="Description" DataType="System.String"/>
+        <Column Name="Category" DataType="System.Int32"/>
+        <Column Name="Team" DataType="System.String"/>
+        <Column Name="Severity" DataType="System.Int32"/>
+        <Column Name="Status" DataType="System.Int32"/>
+        <Column Name="ReporterId" DataType="System.Guid"/>
+        <Column Name="AssignedToId" DataType="System.Guid"/>
+        <Column Name="IsDeleted" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="Longitude" DataType="System.Double"/>
+        <Column Name="Latitude" DataType="System.Double"/>
+        <Column Name="LocationDetails" DataType="System.String"/>
+        <Column Name="CreatedAt" DataType="System.DateTime"/>
+        <Column Name="UpdatedAt" DataType="System.DateTime"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="56.7">
+      <TextObject Name="Text1" Left="255.15" Top="9.45" Width="141.75" Height="37.8" Text="SafeZone&#13;&#10;" HorzAlign="Center" VertAlign="Center" Font="Arial, 18pt, style=Bold"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="60.7" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Left="151.2" Width="359.1" Height="18.9" Text="An incident management and coordiantion platform" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="93.05" Width="718.2" Height="122.85" DataSource="users_Users">
+      <TextObject Name="Text7" Left="9.45" Top="18.9" Width="198.45" Height="18.9" Fill.Color="Blue" Text="[users_Users.UserName]" Font="Arial, 10pt, style=Bold" TextFill.Color="White"/>
+      <TextObject Name="Text8" Left="9.45" Top="75.6" Width="189" Height="18.9" Text="Role: [users_Users.Role]" Font="Arial, 10pt"/>
+      <TextObject Name="Text9" Left="340.2" Top="75.6" Width="217.35" Height="18.9" Text="Status: [users_Users.Status]" Font="Arial, 10pt"/>
+      <TextObject Name="Text10" Left="340.2" Top="47.25" Width="160.65" Height="18.9" Text="Team: [users_Users.Team]" Font="Arial, 10pt"/>
+      <TextObject Name="Text11" Left="9.45" Top="47.25" Width="283.5" Height="18.9" Text="Emaill : [users_Users.Email]" Font="Arial, 10pt"/>
+      <ShapeObject Name="Shape1" Left="9.45" Top="18.9" Width="689.85" Height="94.5" Border.Color="Blue"/>
+      <Sort>
+        <Sort Expression="[users_Users.CreatedAt]"/>
+        <Sort Expression="[users_Users.Role]"/>
+        <Sort Expression="[users_Users.UserName]"/>
+      </Sort>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="219.9" Width="718.2" Height="37.8">
+      <TextObject Name="Text6" Left="519.75" Top="9.45" Width="189" Height="18.9" Text="Page Number: [PageN]" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>
